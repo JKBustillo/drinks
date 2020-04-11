@@ -10,24 +10,23 @@ const RecipesProvider = (props) => {
         category: ''
     });
     const [consult, setConsult] = useState(false);
-
-    const { ingredient, category } = searchRecipes;
-
+    
     useEffect(() => {
         if (consult) {
             const getRecipes = async () => {
-                const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}&c=${category}`;
+                const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchRecipes.ingredient}&c=${searchRecipes.category}`;
                 
                 const response = await axios.get(url);
                 setRecipes(response.data.drinks);
             };
             getRecipes();
         }
-    }, [searchRecipes]);
+    }, [searchRecipes, consult]);
 
     return (
         <RecipesContext.Provider
             value={{
+                recipes,
                 setSearchRecipes,
                 setConsult
             }}
