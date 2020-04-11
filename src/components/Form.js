@@ -8,7 +8,7 @@ const Form = () => {
         category: ''
     });
     const { categories } = useContext(CategoriesContext);
-    const { setSearchRecipes } = useContext(RecipesContext);
+    const { setSearchRecipes, setConsult } = useContext(RecipesContext);
 
     const handleChange = e => {
         setSearch({
@@ -19,6 +19,7 @@ const Form = () => {
     const handleSubmit = e => {
         e.preventDefault();
         setSearchRecipes(search);
+        setConsult(true);
     };
 
     return (
