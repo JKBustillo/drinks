@@ -1,6 +1,6 @@
 # Drinks
 
-Web app to Search for drink recipes.
+Web app to search for drink recipes.
 
 ## Project Setup
 
